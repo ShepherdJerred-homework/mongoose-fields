@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="../standard.css" type="text/css">
+    <title>Comp 431: Homework</title>
+    <base target="_top"/>
+  </head>
+  <body>
+    <p>
+      You are to design the following model classes.  Assume all fields are
+      required unless explicitly identified as optional or unless a default
+      value is provided
+    </p>
+    <p class="top">
+      The <code>Song</code> model should have the following fields:
+    </p>
+    <ul class="end">
+      <li>
+        <code>title</code> &mdash; trim whitespace, maximum of 100 characters
+      </li>
+      <li>
+        <code>length</code> &mdash; must be string of the
+        form <var>MM:SS</var> where <var>MM</var> is the 2-digit number of
+        minutes and <var>SS</var> is the 2-digit number of seconds
+      </li>
+    </ul>
+    <p class="top">
+      The <code>Album</code> model should have the following fields:
+    </p>
+    <ul class="end">
+      <li>
+        <code>title</code> &mdash; trim whitespace, maximum of 100 characters
+      </li>
+      <li>
+        <code>artist</code> &mdash; trim whitespace, maximum of 100
+        characters; make an index on this field so we can search by artist
+      </li>
+      <li>
+        <code>date</code> &mdash; must be a date; must be between Jan 1, 1900
+        and current date; default to current date
+      </li>
+      <li>
+        <code>genre</code> &mdash; must be one of the following: Pop, Rock,
+        Jazz, Blues, Country, Classical, Reggae, Disco
+      </li>
+      <li>
+        <code>song</code> &mdash; an array of references to <code>Song</code> documents
+      </li>
+    </ul>
+    <p class="top">
+      You should turn in two files:
+    </p>
+    <ul class="mid">
+      <li>
+        <code>song.ts</code> &mdash; exports the <code>Song</code> model
+      </li>
+      <li>
+        <code>album.ts</code> &mdash; exports the <code>Album</code> model
+      </li>
+    </ul>
+    <p class="end">
+      I should be able to drop your files into my projects and use your models.
+    </p>
+  </body>
+</html>
