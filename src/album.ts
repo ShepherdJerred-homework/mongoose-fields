@@ -1,4 +1,5 @@
 import * as mongoose from 'mongoose';
+import './mongoose';
 import { Song, SongSchema } from './song';
 
 export interface Album {
@@ -29,8 +30,12 @@ export let AlbumSchema: mongoose.Schema = new mongoose.Schema({
   date: {
     type: Date,
     required: true,
+    default: () => new Date(),
     min: new Date(1900, 0, 1),
-    max: Date.now()
+    validate: {
+      validator: (date: Date) => date <= new Date(),
+      message: "{VALUE} is after now"
+    }
   },
   genre: {
     type: String,
@@ -47,10 +52,10 @@ export let AlbumSchema: mongoose.Schema = new mongoose.Schema({
     ]
   },
   song: {
-    type: SongSchema,
+    type: [SongSchema],
     required: true,
     ref: 'Song'
   }
 });
 
-export let AlbumModel: mongoose.Model<AlbumDocument> = mongoose.model<AlbumDocument>('Song', AlbumSchema);
+export let AlbumModel: mongoose.Model<AlbumDocument> = mongoose.model<AlbumDocument>('Album', AlbumSchema);
